@@ -50,7 +50,7 @@ string searchPattern = string.IsNullOrWhiteSpace(appOptions.SearchPattern) ? "*.
 var containerClient = new BlobContainerClient(blobOptions.ConnectionString, blobOptions.ContainerName);
 await containerClient.CreateIfNotExistsAsync(PublicAccessType.None);
 
-IReadOnlyDictionary<string, string>? tags = null;
+IDictionary<string, string>? tags = null;
 if (!string.IsNullOrWhiteSpace(appOptions.TagName) && !string.IsNullOrWhiteSpace(appOptions.TagValue))
 {
     tags = new Dictionary<string, string>
